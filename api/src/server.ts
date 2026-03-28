@@ -1,17 +1,7 @@
-import express, { Request, Response } from 'express';
-import cors from 'cors';
+import 'dotenv/config';
+import { createApp } from './app.js';
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-app.get('/api/status', (req: Request, res: Response) => {
-  res.json({ 
-    message: 'API Auth-System está rodando',
-    timestamp: new Date().toISOString()
-  });
-});
-
+const app = createApp();
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
